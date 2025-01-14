@@ -1,25 +1,589 @@
 [
 	{
-		"name": "Holodeck",
-		"replaces": "Circus Maximus",
-		"uniqueTo": "Aliens",
-		"cost": 480,
-		"happiness": 12,
-		"culture": 12,
-		"science": 12,
-		"maintenance": 96,
-		"isNationalWonder": true,
-		"requiredBuildingInAllCities": "Colosseum",
-		"requiredTech": "Horseback Riding"
+		"name": "Congress",
+		"cost": 100,
+		"requiredTech": "Civil Service",
+		"uniques": ["Only available <after adopting [Republic]>",
+			"[+1 Culture] per [4] population [in all cities]",
+			"[-10]% Unhappiness from [Population] [in all cities]",
+			"Can only be built <in [Capital] cities>",
+			"Only available <in cities without a [Council]>",
+			"Destroyed when the city is captured"]
 	},
 	{
-		"name": "Breeders",
-		"replaces": "Aqueduct",
-		"uniqueTo": "Aliens",
-		"cost": 80,
-		"hurryCostModifier": 160,
-		"happiness": 2,
-		"uniques": ["40% of food is carried over after a new citizen is born"],
+		"name": "Senate",
+		"replaces": "Congress",
+		"uniqueTo": "Rome",
+		"cost": 100,
+		"requiredTech": "Civil Service",
+		"uniques": ["Only available <after adopting [Republic]>",
+			"[+1 Culture, +1 Gold] per [4] population [in all cities]",
+			"[-10]% Unhappiness from [Population] [in all cities]",
+			"Can only be built <in [Capital] cities>",
+			"Only available <in cities without a [Consulate]>",
+			"Destroyed when the city is captured"]
+	},
+	{
+		"name": "Parliament",
+		"replaces": "Congress",
+		"uniqueTo": "England",
+		"cost": 50,
+		"requiredTech": "Civil Service",
+		"uniques": ["Only available <after adopting [Legalism]>",
+			"[+1 Culture, +1 Production] per [4] population [in all cities]",
+			"[-10]% Unhappiness from [Population] [in all cities]",
+			"Can only be built <in [Capital] cities>",
+			"Only available <in cities without a [Council]>",
+			"Destroyed when the city is captured"]
+	},
+	{
+		"name": "Council",
+		"cost": 50,
+		"requiredTech": "Civil Service",
+		"uniques": ["Only available <after adopting [Oligarchy]>",
+			"[+10]% growth [in all cities]",
+			"[+5]% Production when constructing [All] buildings [in this city]",
+			"Can only be built <in [Capital] cities>",
+			"Only available <in cities without a [Congress]>",
+			"Destroyed when the city is captured"]
+	},
+	{
+		"name": "Consulate",
+		"replaces": "Council",
+		"uniqueTo": "Rome",
+		"cost": 50,
+		"requiredTech": "Civil Service",
+		"uniques": ["Only available <after adopting [Republic]>",
+			"Great General provides double combat bonus",
+			"[+20]% Production when constructing [Military] units [in all cities]",
+			"Can only be built <in [Capital] cities>",
+			"Only available <in cities without a [Senate]>",
+			"Destroyed when the city is captured"]
+	},
+		{
+		"name": "War Council",
+		"cost": 50,
+		"requiredTech": "Civil Service",
+		"uniques": [
+			"Only available <after adopting [Militarism]>",
+			"[+1 Production] per [4] population [in all cities]",
+			"[+20]% Production when constructing [Military] units [in all cities]",
+			"Can only be built <in [Capital] cities>",
+			"Destroyed when the city is captured"]
+	},
+	{
+		"name": "International Trade Center",
+		"isWonder": true,
+		"culture": 1,
+		"gold": 1,
+		"percentStatBonus": {"gold": 10},
+		"greatPersonPoints": {"Great Merchant": 1, "Great Administrator": 1},
+		"requiredTech": "Globalization",
+		"uniques": [
+			"Influence of all other civilizations with all city-states degrades [33]% faster","Triggers a global alert upon build start"],
+		"quote": "By pursuing our own interest we frequently promote that of the society more effectually than when we really intend to promote it."
+	},
+		{
+		"name": "Public Works Administration",
+		"isNationalWonder": true,
+		"culture": 1,
+		"science": 1,
+		"greatPersonPoints": { "Great Administrator": 2 },
+		"requiredTech": "Civil Service",
+		"uniques": [
+			"Only available <if [Workshop] is constructed in all [non-[Puppeted]] cities>",
+			"Only available <after adopting [Citizenship]>",
+			"[+1 Production] [in all cities connected to capital]",
+			"Gain [20] [Culture] <upon declaring friendship>",
+			"Gain [20] [Culture] <upon declaring a defensive pact>"]
+	},
+	{
+		"name": "Content Farm",
+		"percentStatBonus": { "production": -5 },
+		"culture": 5,
+		"uniques": ["Consumes [1] [Power]",
+			"Only available <after adopting [Protectionism]>",
+			"Only available <in cities with a [Broadcast Tower]>"],
+		"requiredTech": "Computers"
+	},
+		{
+		"name": "Software Lab",
+		"percentStatBonus": { "production": -5 },
+		"production": -1,
+		"science": 5,
+		"uniques": ["Consumes [1] [Power]",
+			"Only available <in cities with a [Broadcast Tower]>",
+			"[+10]% [Science] [in this city]"],
+		"requiredTech": "Computers"
+	},
+		{
+		"name": "Resource Management Server",
+		"percentStatBonus": { "production": 5 },
+		"production": 2,
+		"food": 2,
+		"uniques": ["Consumes [1] [Power]",
+			"Only available <in cities with a [Research Lab]>",
+			"[+10]% growth [in this city]",
+			"Limited to [5] per Civilization"],
+		"requiredTech": "Computers"
+	},
+		{
+		"name": "Electronics Production Line",
+		"percentStatBonus": { "production": 5 },
+		"production": 3,
+		"uniques": ["Provides [1] [Aluminum]","Consumes [1] [Power]",
+			"Only available <in cities with a [Factory]>"],
+		"requiredTech": "Electronics"
+	},
+		{
+		"name": "Machinery Production Line",
+		"percentStatBonus": { "production": 5 },
+		"production": 3,
+		"uniques": [
+			"Consumes [1] [Coal]",
+			"Only available <in cities with a [Factory]>"],
+		"requiredTech": "Replaceable Parts"
+	},
+		{
+		"name": "Publishing House",
+		"percentStatBonus": { "culture": 5 },
+		"science": 2,
+		"uniques": [
+			"Only available <after adopting [Scholasticism]>",
+			"Only available <in cities with a [Library]>"],
+		"requiredTech": "Printing Press"
+	},
+		{
+		"name": "Greenhouse",
+		"food": 2,
+		"uniques": [
+			"[+1 Food] from [Bananas] tiles [in this city]",
+			"[+1 Food] from [Wheat] tiles [in this city]"
+		],
+		"maintenance": 1,
+		"hurryCostModifier": 25,
+		"requiredTech": "Biology"
+	},
+		{
+		"name": "Hydroponic Farming",
+		"food": 2,
+		"maintenance": 1,
+		"hurryCostModifier": 25,
+		"uniques": [
+			"[+1 Food] from [Lakes] tiles [in this city]"
+		],
+		"requiredTech": "Ecology"
+	},
+		{
+		"name": "Decontamination Center",
+		"science": -1,
+		"maintenance": 3,
+		"hurryCostModifier": 0,
+		"requiredTech": "Ecology",
+		"uniques": ["Consumes [1] [Power]",
+			"Population loss from nuclear attacks [-25]% [in this city]",
+			"Damage to garrison from nuclear attacks [-25]% [in this city]"]
+	},
+		{
+		"name": "Town Hall",
+		"maintenance": 1,
+		"uniques": [
+			"[-10]% Culture cost of natural border growth [in this city]",
+			"[-10]% Gold cost of acquiring tiles [in this city]",
+		],
+		"hurryCostModifier": 25,
+		"requiredTech": "Civil Service"
+	},
+	{
+		"name": "Domestic Electrification",
+		"isNationalWonder": true,
+		"uniques": [
+			"[+2 Happiness, +2 Culture] [in all cities] <when above [0] [Power]>",
+			"Cost increases by [50] per owned city",
+			"Can only be built <in [Capital] cities>",
+			"Consumes [5] [Power]"
+		],
+		"hurryCostModifier": 25,
 		"requiredTech": "Engineering"
-	}
-]
+	},
+		{
+		"name": "Casino",
+		"specialistSlots": { "Merchant": 1 },
+		"happiness": -2,
+		"uniques": [
+			"[+1 Gold] per [3] population [in this city]",
+			"[+1 Gold] [in this city] <with [Wheat]>",
+			"[+1 Gold] [in this city] <with [Incense]>",
+			"[+1 Gold] [in this city] <with [Refined Narcotics]>"],
+		"requiredTech": "Electricity"
+	},
+		{
+		"name": "Slave Market",
+		"percentStatBonus": { "production": 10 },
+		"specialistSlots": { "Merchant": 1 },
+		"happiness": -2,
+		"uniques": ["Only available <before adopting [Liberty]>",
+			"[+50]% Production when constructing [Worker] units [in this city]"],
+		"requiredTech": "Mathematics"
+	},
+		{
+		"name": "Television Studio",
+		"culture": 1,
+		"happiness": 2,
+		"specialistSlots": { "Artist": 1 },
+		"maintenance": 2,
+		"uniques": [
+			"Only available <in cities with a [Broadcast Tower]>","Consumes [1] [Power]"],
+		"requiredTech": "Electronics"
+	},
+		{
+		"name": "Communications Network",
+		"isNationalWonder": true,
+		"requiredTech": "Telecomunications",
+		"cost": 600,
+		"uniques": [
+			"[+3 Production, +3 Culture] [in all cities connected to capital]",
+			"[+10]% [Production] [in all cities connected to capital]",
+			"[+10]% [Culture] [in all cities connected to capital]"]
+	},
+	{
+		"name": "Military School",
+		"food": -1,
+		"science": 1,
+		"uniques": [
+			"[+15]% Production when constructing [Military] units [in this city]",
+			"New [Military] units start with [15] Experience [in this city]",
+			"Only available <in cities with a [Armory]>","Only available <after adopting [Militarism]>"],
+		"maintenance": 1,
+		"hurryCostModifier": 25,
+		"requiredTech": "Military Science"
+	},
+		{
+		"name": "Cold Store",
+		"percentStatBonus": { "food": 10 },
+		"maintenance": 1,
+		"uniques": [
+			"[+1 Food] from [Fish] tiles [in this city]",
+			"[+1 Food] from [Cattle] tiles [in this city]",
+			"[+1 Food] from [Deer] tiles [in this city]",
+			"[+1 Food] from [Furs] tiles [in this city]",
+			"[+1 Food] from [Truffles] tiles [in this city]",
+			"[+1 Food] from [Crabs] tiles [in this city]",
+			"[+1 Production] from [Ice] tiles [in this city]",
+			"Consumes [1] [Aluminum]"],
+		"hurryCostModifier": 25,
+		"requiredTech": "Refrigeration"
+	},
+		{
+		"name": "Media Center", // op
+		"happiness": 3,
+		"culture": 3,
+		"isNationalWonder": true,
+		"greatPersonPoints": { "Great Artist": 3 },
+		"requiredTech": "Telecommunications"
+	},
+		{
+		"name": "Communications Satellite",
+		"happiness": 2,
+		"science": 2,
+		"culture": 5,
+		"greatPersonPoints": { "Great Engineer": 1 },
+		"isNationalWonder": true,
+		"uniques": [
+			"Science gained from research agreements [+50]%",
+			"Only available <in cities with a [Spaceship Factory]>"],
+		"requiredTech": "Satellites"
+	},
+		{
+		"name": "Surveillance Satellite",
+		"happiness": 5,
+		"culture": 2,
+		"greatPersonPoints": { "Great Engineer": 1 },
+		"isNationalWonder": true,
+		"uniques": [
+			"[+1] Sight <for [All] units>",
+			"Only available <in cities with a [Spaceship Factory]>"],
+		"requiredTech": "Incentivization"
+	},
+		{
+		"name": "Defensive Emplacements",
+		"cityStrength": 5,
+		"cityHealth": 20,
+		"hurryCostModifier": 0,
+		"uniques": [
+			"Only available <in cities with a [Military Base]>",
+			"Destroyed when the city is captured"],
+		"requiredTech": "Replaceable Parts"
+	},
+		{
+		"name": "Battery",
+		"cityStrength": 10,
+		"maintenance": 1,
+		"hurryCostModifier": 0,
+		"uniques": [
+			"Only available <in cities with a [Arsenal]>",
+			"Destroyed when the city is captured"],
+		"requiredTech": "Dynamite"
+	},
+		{
+		"name": "Active Denial System",
+		"happiness": 3,
+		"maintenance": 5,
+		"cityHealth": 50,
+		"hurryCostModifier": 25,
+		"uniques": [
+			"Consumes [1] [Power]",
+			"Destroyed when the city is captured",
+			"Free [Missile Defense System] appears"
+		],
+		"requiredTech": "Lasers"
+	},
+		{
+		"name": "Narcotics Refinery",
+		"requiredTech": "Biology",
+		"uniques": [
+			"Provides [1] [Refined Narcotics]",
+			"Only available <with [Incense]>",
+			"Consumes [1] [Incense]"]
+	},
+		{
+		"name": "Blast Furnace",
+		"maintenance": 1,
+		"hurryCostModifier": 25,
+		"requiredNearbyImprovedResources": ["Iron","Aluminum"],
+		"uniques": [
+			"[+2 Production, -1 Gold] from [Iron] tiles [in this city]",
+			"[+2 Production, -1 Gold] from [Aluminum] tiles [in this city]",
+			"Consumes [1] [Coal]"
+		],
+		"requiredTech": "Steel"
+	},
+		{
+		"name": "Oil Refinery",
+		"maintenance": 1,
+		"cost": 150,
+		"requiredNearbyImprovedResources": ["Oil"],
+		"hurryCostModifier": 25,
+		"uniques": [
+			"Provides [1] [Oil]",
+			"Consumes [1] [Power]",
+			"[+1 Production] [in this city] <with [Oil]>",
+			"[-1 Food, +3 Production, -1 Gold] from [Oil] tiles [in this city]",
+			"Consumes [1] [Coal]"],
+		"requiredTech": "Biology"
+	},
+		{
+		"name": "Tidal Plant",
+		"hurryCostModifier": 25,
+		"uniques": [
+			"Must be next to [Coast]",
+			"Provides [2] [Power]",
+			"Only available <in cities with a [Library]>"],
+		"requiredTech": "Electronics"
+	},
+		{
+		"name": "Coal Plant",
+		"maintenance": 4,
+		"cost": 250,
+		"hurryCostModifier": 25,
+		"percentStatBonus": { "food": -20 },
+		"uniques": [
+			"Provides [6] [Power]",
+			"Provides [2] [Power] <when above [0] [Coal]>",
+			"Consumes [1] [Coal]",
+			"Only available <in cities without a [Solar Plant]>",
+			"Only available <in cities with a [Library]>"
+		],
+		"requiredTech": "Electricity"
+	},
+		{
+		"name": "Hydro Plant",
+		"hurryCostModifier": 25,
+		"uniques": [
+			"Must be on [River]",
+			"Provides [2] [Power]",
+			"Only available <in cities with a [Library]>"
+		],
+		"requiredTech": "Electricity"
+	},
+		{
+		"name": "Biofuel Refinery",
+		"requiredNearbyImprovedResources": ["Cattle", "Sheep", "Horses"],
+		"maintenance": 2,
+		"food": -1,
+		"hurryCostModifier": 25,
+		"uniques": [
+			"Provides [1] [Oil] <when above [-2] [Power]>",
+			"Consumes [1] [Power]"
+		],
+		"requiredTech": "Plastics"
+	},
+		{
+		"name": "Nuclear Plant",
+		"maintenance": 4,
+		"cost": 750,
+		"hurryCostModifier": 33,
+		"uniques": [
+			"Consumes [1] [Uranium]",
+			"Provides [5] [Power]",
+			"Provides [2] [Power] <when above [-2] [Uranium]>",
+			"[+33]% Production when constructing [Manhattan Project] wonders [in this city]",
+			"[+33]% Production when constructing [Nuclear Weapon] units [in this city]",
+			"Only available <in cities with a [Library]>"],
+		"requiredTech": "Nuclear Fission"
+	},
+		{
+		"name": "Aluminum Smelter",
+		"maintenance": 1,
+		"hurryCostModifier": 25,
+		"requiredNearbyImprovedResources": ["Aluminum"],
+		"uniques": [
+			"[-1 Food, -1 Gold, +2 Production] from [Aluminum] tiles [in this city]",
+			"Consumes [1] [Power]",
+			"Provides [1] [Aluminum]"],
+		"requiredTech": "Manufacturing"
+	},
+		{
+		"name": "Desalination Plant",
+		"food": 2,
+		"hurryCostModifier": 25,
+		"uniques": [
+			"Must be next to [Coast]",
+			"[+1 Food] from [Coast] tiles [in this city]",
+			"[+1 Food] [in this city] <when above [0] [Power]>",
+			"Provides [1] [Salt]",
+			"Consumes [1] [Power]"],
+		"requiredTech": "Desalination"
+	},
+		{
+		"name": "Armaments Production Line",
+		"percentStatBonus": { "production": 10 },
+		"cityStrength": 5,
+		"production": 2,
+		"uniques": [
+			"[+1] Unit Supply",
+			"Consumes [1] [Power]",
+			"[+25]% Production when constructing [Military] units [in this city] <when above [0] [Power]>",
+			"Only available <in cities with a [Factory]>",
+			"Gain a free [Battery] [in this city]"],
+		"requiredTech": "Ballistics"
+	},
+		{
+		"name": "Armor Production Line",
+		"production": -3,
+		"uniques": [
+			"Free [Tank] appears",
+			"[+33]% Production when constructing [Armored] units [in this city]",
+			"[+33]% Production when constructing [Armored] units [in this city] <when above [0] [Power]>",
+			"Only available <in cities with a [Factory]>",
+			"Consumes [1] [Power]"],
+		"requiredTech": "Combined Arms"
+	},
+		{
+		"name": "Automated Factory",
+		"percentStatBonus": { "production": 25 },
+		"production": 5,
+		"maintenance": 3,
+		"specialistSlots": {"Engineer": 1},
+		"uniques": [
+			"[+1 Production] [in this city] <when above [0] [Power]>",
+			"Only available <in cities with a [Factory]>",
+			"[+33]% Production when constructing [Mech] units [in this city]",
+			"[+33]% Production when constructing [Mech] units [in this city] <when above [0] [Power]>",
+			"Consumes [1] [Power]",
+			"Consumes [1] [Aluminum]"],
+		"requiredTech": "Robotics"
+	},
+	{
+		"name": "Plastics Factory",
+		"food": -1,
+		"production": 2,
+		"specialistSlots": { "Engineer": 1 },
+		"maintenance": 2,
+		"hurryCostModifier": 0,
+		"requiredNearbyImprovedResources": ["Oil"],
+		"uniques": ["Consumes [1] [Power]"],
+		"requiredTech": "Plastics"
+	},
+	{
+		"name": "Plastics Reprocessor",
+		"percentStatBonus": {"production": 15},
+		"specialistSlots": { "Engineer": 1 },
+		"maintenance": 1,
+		"hurryCostModifier": 0,
+		"uniques": ["Consumes [1] [Power]","Provides [1] [Oil]","Limited to [5] per Civilization"],
+		"requiredTech": "Ecology"
+	},
+	{
+		"name": "Uranium Centrifuge",
+		"maintenance": 3,
+		"requiredTech": "Particle Physics",
+		"uniques": [
+			"Provides [1] [Uranium] <when above [0] [Power]>",
+			"Consumes [1] [Power]",
+			"Limited to [3] per Civilization"]
+	},
+	{
+		"name": "Carbon Capture",
+		"food": 2,
+		"maintenance": 2,
+		"hurryCostModifier": 0,
+		"uniques": ["[+1 Food, +1 Happiness] from [Grassland] tiles [in this city]"],
+		"requiredTech": "Globalization"
+	},
+		{
+		"name": "Fusion Reactor",
+		"cost": 3750,
+		"isNationalWonder": true,
+		"uniques": [
+			"Provides [8] [Power]",
+			"Provides [2] [Uranium]",
+			"Can only be built <in [Capital] cities>",
+			"[+1 Production] [in all cities connected to capital]"
+		],
+		"requiredTech": "Nuclear Fusion"
+	},
+	    {
+		"name": "Transport Network",
+		"maintenance": 3,
+		"requiredTech": "Mobile Tactics",
+		"uniques": [
+			"[+1 Food, +1 Production] from [Road] tiles [in this city]",
+			"[+1 Food, +1 Production] from [Railroad] tiles [in this city]",
+			"Consumes [1] [Power]"]
+	},
+		{
+		"name": "Fish Farm",
+		"food": 2,
+		"maintenance": 1,
+		"hurryCostModifier": 25,
+		"requiredNearbyImprovedResources": ["Fish"],
+		"requiredTech": "Ecology",
+		"uniques": [
+			"Must be next to [Coast]",
+			"[+1 Food] from [Coast] tiles [in this city]"
+		]
+	},
+		{
+		"name": "Holy Fortress",
+		"cost": 0,
+		"faith": 1,
+		"culture": 1,
+		"happiness": 1,
+		"cityStrength": 6,
+		"cityHealth": 25,
+		"uniques": ["Unbuildable", "Only available <when religion is enabled>"]
+	},
+		{
+		"name": "Divinity School",
+		"cost": 0,
+		"culture": 1,
+		"faith": 1,
+		"happiness": 1,
+		"science": 3,
+		"percentStatBonus": {"science": 10},
+		"specialistSlots": { "Scientist": 1 },
+		"uniques": [
+			"Unbuildable",
+			"Only available <when religion is enabled>"]
+	},
