@@ -1,17 +1,55 @@
 [
-	{
-		"name": "Phasers",
-		"unitType": "Ranged",
-		"uniqueTo": "Aliens",
-		"replaces": "Machine Gun",
-		"movement": 2,
-		"strength": 90,
-		"rangedStrength": 36,
-		"range": 2,
-		"cost": 500,
-		"requiredTech": "Ballistics",
-		"requiredResource": "Uranium",
-		"promotions": ["Logistics","Accuracy I"],
-		"attackSound": "phasers"
+		{
+		"name": "Mounted Worker",
+		"unitType": "Civilian",
+		"movement": 4,
+		"hurryCostModifier": 20,
+		"requiredTech": "Civil Service",
+		"upgradesTo": "Mechanized Worker",
+		"uniques": [
+			"Mounted",
+			"Consumes [1] [Horses]",
+			"Can build [Land] improvements on tiles",
+			"Withdraws before melee combat <with [50]% chance>",
+			"Only available <if [Stable] is constructed>",
+			"Automation is a primary action"
+		],
+		"cost": 130
+	},
+		{
+		"name": "Mechanized Worker",
+		"unitType": "Civilian",
+		"requiredTech": "Replaceable Parts",
+		"movement": 4,
+		"cost": 200,
+		"hurryCostModifier": 20,
+		"uniques": [
+			"Consumes [1] [Oil]",
+			"Only available <if [Factory] is constructed>",
+			"Withdraws before melee combat <with [50]% chance>",
+			"Can build [Land] improvements on tiles",
+			"[-25]% construction time for [All] improvements",
+			"Automation is a primary action"
+		]
+	},
+		{
+		"name": "Missile Defense System",
+		"unitType": "Missile Defense",
+		"movement": 1,
+		"strength": 100,
+		"rangedStrength": 100,
+		"range": 5,
+		"interceptRange": 5,
+		"cost": 1000,
+		"requiredTech": "Rocketry",
+		"uniques": [
+			"Cannot attack",
+			"Cannot move",
+			"[100]% chance to intercept air attacks",
+			"[1] extra interceptions may be made per turn",
+			"[+1000]% Strength <vs [Missile] units>",
+			"Consumes [1] [Power]",
+			"Only available <in cities with a [Active Denial System]>"
+		]
 	}
 ]
