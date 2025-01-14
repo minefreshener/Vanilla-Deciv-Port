@@ -1,1 +1,8 @@
-
+	{
+		"name": "Power",
+		"resourceType": "Strategic",
+	},
+	{
+		"name": "Refined Narcotics",
+		"resourceType": "Luxury"
+	}
