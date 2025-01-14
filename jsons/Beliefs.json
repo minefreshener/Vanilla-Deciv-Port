@@ -1,1 +1,16 @@
-
+[
+	{
+		"name": "Holy Fortresses",
+		"type": "Follower",
+		"uniques": [
+			"May buy [Holy Fortress] buildings for [200] [Faith] [in cities following this religion]"
+		]
+	},
+  	{
+		"name": "Divinity Schools",
+		"type": "Follower",
+		"uniques": [
+			"May buy [Divinity School] buildings for [200] [Faith] [in cities following this religion]"
+		]
+	}
+]
