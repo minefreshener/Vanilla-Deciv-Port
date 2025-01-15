@@ -563,27 +563,4 @@
 			"Must be next to [Coast]",
 			"[+1 Food] from [Coast] tiles [in this city]"
 		]
-	},
-		{
-		"name": "Holy Fortress",
-		"cost": 0,
-		"faith": 1,
-		"culture": 1,
-		"happiness": 1,
-		"cityStrength": 6,
-		"cityHealth": 25,
-		"uniques": ["Unbuildable", "Only available <when religion is enabled>"]
-	},
-		{
-		"name": "Divinity School",
-		"cost": 0,
-		"culture": 1,
-		"faith": 1,
-		"happiness": 1,
-		"science": 3,
-		"percentStatBonus": {"science": 10},
-		"specialistSlots": { "Scientist": 1 },
-		"uniques": [
-			"Unbuildable",
-			"Only available <when religion is enabled>"]
-	},
+	}
