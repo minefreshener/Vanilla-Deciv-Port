@@ -34,7 +34,7 @@
 	},
 		{
 		"name": "Missile Defense System",
-		"unitType": "Missile Defense",
+		"unitType": "Fighter",
 		"movement": 1,
 		"strength": 100,
 		"rangedStrength": 100,
